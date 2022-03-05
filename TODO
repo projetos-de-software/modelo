@@ -1,0 +1,6 @@
+project: 
+    feature: 
+        ☐ TODO: compatibilidade entre versões de yarn (1 e 2)
+    new:
+        ☐ TODO: checagem da existência de comandos (bash) @high
+        
