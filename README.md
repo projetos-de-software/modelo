@@ -22,7 +22,9 @@ Para fazer a instalação você deve executar o script abaixo na pasta raiz do s
 
 ```bash
 $ curl https://raw.githubusercontent.com/projetos-de-software/modelo/main/script/install.sh -o install.sh
+```
 
+```bash
 $ sh install.sh
 ```
 

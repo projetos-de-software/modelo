@@ -55,8 +55,8 @@ yarn add husky -D
 yarn husky install
 
 ## Função que adiciona a linha script no package.json
-echo $(jq '. += {"script":{}}' package.json) > package.json
-echo $(jq '.script +={"prepare":"husky install"})' package.json) > package.json
+echo $(jq '. += {"scripts":{}}' package.json) > package.json
+echo $(jq '.scripts +={"prepare":"husky install"}' package.json) > package.json
 
 # Add hook que vai disparar o commitlint
 yarn husky add .husky/commit-msg 'yarn commitlint --edit $1'
@@ -68,18 +68,17 @@ yarn add commitizen -D
 yarn commitizen init cz-conventional-changelog --yarn --dev --exact
 
 # Adiciona a linha na parte de script
-echo $(jq '.script +={"commit":"git-cz"})' package.json) > package.json
+echo $(jq '.scripts +={"commit":"git-cz"}' package.json) > package.json
 
 # Instalando o standard version
 yarn add standard-version 
 
 # Adicionando o release no package.json
-echo $(jq '.script +={"commit":"git-cz"})' package.json) > package.json
+echo $(jq '.scripts +={"release":"standard-version"}' package.json) > package.json
 
 
 ##  Escrevendo o versionrc
-
-versionamento=$(cat <<-EOF
+cat <<EOF > .versionrc
 {
   "types": [
     { "type": "feat", "section": "Features" },
@@ -96,12 +95,16 @@ versionamento=$(cat <<-EOF
   "compareUrlFormat": "https://dev.azure.com/COMPANY/project/_git/repository_name/branchCompare?baseVersion=GT{{previousTag}}&targetVersion=GT{{currentTag}}&_a=files"
 }
 EOF
-)
 
-## Montagem do changelog
-echo $versionamento > .versionrc
+# Escrevendo o .gitignore
+cat <<EOF > .gitignore
+node_modules
+EOF
+
+
 
 ## Mensagens finais 
-echo "Você precisará fazer as seguintes alterações: \n"
-echo "1. Alterar no arquivo .versionrc a URL de commit, URL de comparação \n"
+echo ""
+echo "Você precisará fazer as seguintes alterações:"
+echo "1. Alterar no arquivo .versionrc a URL de commit, URL de comparação"
 echo ""
