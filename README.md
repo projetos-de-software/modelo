@@ -4,7 +4,10 @@ Modelo de Projetos e Diretivas
 
 ## Pré-Requisitos
 
-Os Pré-Requisitos abaixo deverão ser prenchidos antes de instalar 
+Os Pré-Requisitos abaixo deverão ser prenchidos antes de instalar :
+
+1. NodeJS - versão 10 ou superior
+2. Yarn - versão 1 ou superior
 
 ## Script de instalação 
 
