@@ -34,11 +34,10 @@ version_greater(){
 
 die() { echo "$*" 1>&2 ; exit 1; }
 
-addScript(){
-
-}
-
 #########
+
+checarComandos
+checarVersoes
 
 # Yarn para iniciar um repositório respondendo tudo como default
 yarn init -y 
@@ -55,9 +54,54 @@ yarn add husky -D
 # ativando os hooks
 yarn husky install
 
-## Função que adiciona a linha script no json
-
+## Função que adiciona a linha script no package.json
+echo $(jq '. += {"script":{}}' package.json) > package.json
+echo $(jq '.script +={"prepare":"husky install"})' package.json) > package.json
 
 # Add hook que vai disparar o commitlint
 yarn husky add .husky/commit-msg 'yarn commitlint --edit $1'
 
+# Instalando o commitizen
+yarn add commitizen -D
+
+# Criando a configuração
+yarn commitizen init cz-conventional-changelog --yarn --dev --exact
+
+# Adiciona a linha na parte de script
+echo $(jq '.script +={"commit":"git-cz"})' package.json) > package.json
+
+# Instalando o standard version
+yarn add standard-version 
+
+# Adicionando o release no package.json
+echo $(jq '.script +={"commit":"git-cz"})' package.json) > package.json
+
+
+##  Escrevendo o versionrc
+
+versionamento=$(cat <<-EOF
+{
+  "types": [
+    { "type": "feat", "section": "Features" },
+    { "type": "fix", "section": "Bug Fixes" },
+    { "type": "chore", "hidden": true },
+    { "type": "docs", "hidden": true },
+    { "type": "style", "hidden": true },
+    { "type": "refactor", "hidden": true },
+    { "type": "perf", "hidden": true },
+    { "type": "test", "hidden": true },
+    { "type": "build", "hidden": true }
+  ],
+  "commitUrlFormat": "https://dev.azure.com/COMPANY/project/_git/repository_name/commit/{{hash}}",
+  "compareUrlFormat": "https://dev.azure.com/COMPANY/project/_git/repository_name/branchCompare?baseVersion=GT{{previousTag}}&targetVersion=GT{{currentTag}}&_a=files"
+}
+EOF
+)
+
+## Montagem do changelog
+echo $versionamento > .versionrc
+
+## Mensagens finais 
+echo "Você precisará fazer as seguintes alterações: \n"
+echo "1. Alterar no arquivo .versionrc a URL de commit, URL de comparação \n"
+echo ""
