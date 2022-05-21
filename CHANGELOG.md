@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/projetos-de-software/modelo/compare/v0.0.2...v0.0.3) (2022-05-21)
+
+
+### Bug Fixes
+
+* correção de bugs - urls de repositórios e standard-version ([067a515](https://github.com/projetos-de-software/modelo/commit/067a515382547d60b35d3ee96de631553f7e7e33))
+
 ### [0.0.2](https://github.com/projetos-de-software/modelo/compare/v0.0.1...v0.0.2) (2022-03-09)
 
 
