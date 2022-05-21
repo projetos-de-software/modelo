@@ -71,7 +71,7 @@ yarn commitizen init cz-conventional-changelog --yarn --dev --exact
 echo $(jq '.scripts +={"commit":"git-cz"}' package.json) > package.json
 
 # Instalando o standard version
-yarn add standard-version 
+yarn add standard-version  --dev
 
 # Adicionando o release no package.json
 echo $(jq '.scripts +={"release":"standard-version"}' package.json) > package.json
@@ -90,9 +90,7 @@ cat <<EOF > .versionrc
     { "type": "perf", "hidden": true },
     { "type": "test", "hidden": true },
     { "type": "build", "hidden": true }
-  ],
-  "commitUrlFormat": "https://dev.azure.com/COMPANY/project/_git/repository_name/commit/{{hash}}",
-  "compareUrlFormat": "https://dev.azure.com/COMPANY/project/_git/repository_name/branchCompare?baseVersion=GT{{previousTag}}&targetVersion=GT{{currentTag}}&_a=files"
+  ] 
 }
 EOF
 
@@ -102,9 +100,8 @@ node_modules
 EOF
 
 
-
 ## Mensagens finais 
 echo ""
-echo "Você precisará fazer as seguintes alterações:"
-echo "1. Alterar no arquivo .versionrc a URL de commit, URL de comparação"
+echo "Pronto! Vc já pode utilizar o modelo de desenvolvimento!"
+echo "Para mais informações acesse: https://github.com/projetos-de-software/modelo"
 echo ""
