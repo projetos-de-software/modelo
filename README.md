@@ -21,11 +21,11 @@ Esse projeto é um script que instala e deixa pré-configurado as seguintes ferr
 Para fazer a instalação você deve executar o script abaixo na pasta raiz do seu repositório:
 
 ```bash
-$ curl https://raw.githubusercontent.com/projetos-de-software/modelo/main/script/install.sh -o install.sh
+curl https://raw.githubusercontent.com/projetos-de-software/modelo/main/script/install.sh -o install.sh
 ```
 
 ```bash
-$ sh install.sh
+sh install.sh
 ```
 
 ## Uso da ferramenta
