@@ -30,7 +30,7 @@ sh install.sh
 
 ## Uso da ferramenta
 
-Os passos abaixo são para que o usuário tenha pleno uso das funcionalidades: 
+Os passos abaixo são para que o usuário tenha pleno uso das funcionalidades:  
 
 ### Como fazer um commit
 
