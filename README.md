@@ -2,6 +2,10 @@
 
 Modelo de Projetos e Diretivas
 
+**Esse projeto está obsoleto e foi descontinuado**
+
+O link do projeto atual é: https://github.com/projetos-de-software/organizer
+
 ## Pré-Requisitos
 
 Os Pré-Requisitos abaixo deverão ser prenchidos antes de instalar :
